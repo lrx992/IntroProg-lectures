@@ -96,11 +96,11 @@ def find_optimal_labor_supply(nu,frisch,m,w,tau0,tau1,kappa):
         
     Returns:
     
-        (float): utility
+        (float): optimal labor supply
         
     """
     
     obj = lambda l: -value_of_choice(l,nu,frisch,m,w,tau0,tau1,kappa)
-    res = optimize.minimize_scalar(obj,bounds=(1e-8,1),method='bounded')
+    res = optimize.minimize_scalar(obj,bounds=(0,1),method='bounded')
 
     return res.x
